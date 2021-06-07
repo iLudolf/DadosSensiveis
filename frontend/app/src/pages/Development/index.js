@@ -9,7 +9,7 @@ import NavbarProd from '../../components/NavbarProd';
 
 
 
-function Production() {
+function Development() {
 
 
     return (
@@ -22,7 +22,7 @@ function Production() {
             <div class="container">
                 <main>
                     <div class="py-5 text-center">
-                        <img class="d-block mx-auto mb-4" src="./cart-alt.svg" alt="" width="72" height="72" />
+                        {/* <img class="d-block mx-auto mb-4" src="./cart-alt.svg" alt="" width="72" height="72" /> */}
                         <h2>Finalizar Compra</h2>
                         <p class="lead">Exemplo de Transmissão de informações sensíveis na URL.</p>
                     </div>
@@ -77,7 +77,7 @@ function Production() {
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <label for="firstName" class="form-label">Nome</label>
-                                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required />
+                                        <input type="text" class="form-control" id="firstName" placeholder=""  required />
                                         <div class="invalid-feedback">
                                             Valid first name is required.
                                         </div>
@@ -85,7 +85,7 @@ function Production() {
 
                                     <div class="col-sm-6">
                                         <label for="lastName" class="form-label">Sobrenome</label>
-                                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required />
+                                        <input type="text" class="form-control" id="lastName" placeholder=""  required />
                                         <div class="invalid-feedback">
                                             Valid last name is required.
                                         </div>
@@ -231,4 +231,4 @@ function Production() {
 
 
 
-export default Production;
+export default Development;
