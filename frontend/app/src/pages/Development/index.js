@@ -24,7 +24,7 @@ function Development() {
                     <div class="py-5 text-center">
                         {/* <img class="d-block mx-auto mb-4" src="./cart-alt.svg" alt="" width="72" height="72" /> */}
                         <h2>Finalizar Compra</h2>
-                        <p class="lead">Exemplo de Transmissão de informações sensíveis na URL.</p>
+                        <p class="lead">Exemplo de Transmissão de informações sensíveis na URL.<br /><span style={{ color: "red" }}> Metodo Incorreto</span></p>
                     </div>
 
                     <div class="row g-5">
@@ -77,7 +77,7 @@ function Development() {
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <label for="firstName" class="form-label">Nome</label>
-                                        <input type="text" class="form-control" id="firstName" placeholder=""  required />
+                                        <input type="text" class="form-control" id="firstName" placeholder="" required />
                                         <div class="invalid-feedback">
                                             Valid first name is required.
                                         </div>
@@ -85,7 +85,7 @@ function Development() {
 
                                     <div class="col-sm-6">
                                         <label for="lastName" class="form-label">Sobrenome</label>
-                                        <input type="text" class="form-control" id="lastName" placeholder=""  required />
+                                        <input type="text" class="form-control" id="lastName" placeholder="" required />
                                         <div class="invalid-feedback">
                                             Valid last name is required.
                                         </div>
@@ -116,7 +116,7 @@ function Development() {
                                         <div class="invalid-feedback">
                                             Please enter your shipping address.
                                         </div>
-                                    </div>                                   
+                                    </div>
 
                                     <div class="col-md-5">
                                         <label for="country" class="form-label">País</label>
@@ -198,7 +198,6 @@ function Development() {
                                         <label for="cc-expiration" class="form-label">Vencimento</label>
                                         <input type="text" class="form-control" id="cc-expiration" placeholder="" required />
                                         <div class="invalid-feedback">
-                                            Expiration date required
                                         </div>
                                     </div>
 
@@ -213,7 +212,7 @@ function Development() {
 
                                 <hr class="my-4" />
 
-                                <button class="w-100 btn btn-primary btn-lg" type="submit">Confirmar Compra</button>
+                                <button class="w-100 btn btn-primary btn-lg" type="submit" onClick={() => enviarDados()}>Confirmar Compra</button>
                             </form>
                         </div>
                     </div>
@@ -225,6 +224,51 @@ function Development() {
 
         </>
     );
+}
+
+
+const enviarDados = async () => {
+
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    let username = document.getElementById('username').value;
+    let email = document.getElementById('email').value;
+    let address = document.getElementById('address').value;
+    let country = document.getElementById('country').value;
+    let state = document.getElementById('state').value;
+    let zip = document.getElementById('zip').value;
+    let ccName = document.getElementById('cc-name').value;
+    let ccNumber = document.getElementById('cc-number').value;
+    let ccExpiration = document.getElementById('cc-expiration').value;
+    let ccCvv = document.getElementById('cc-cvv').value;
+
+    var data = {
+               "lastName": lastName,
+        "username": username,
+        "email": email,
+        "address": address,
+        "country": country,
+        "state": state,
+        "zip": zip,
+        "ccName": ccName,
+        "ccNumber": ccNumber,
+        "ccExpiration": ccExpiration,
+        "ccCvv": ccCvv,
+    }
+
+
+
+
+    const API_URL = `http://http://localhost:3001/compras/firstName:${firstName}&lastName:${lastName}$ccName:${ccNumber}&ccNumber:${ccNumber}&ccExpiration:${ccCvv}`;
+    const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },       
+    });
+    const dataR = await response.json();
+    alert(dataR.message);
 }
 
 

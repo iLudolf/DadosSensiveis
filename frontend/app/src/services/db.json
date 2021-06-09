@@ -2,23 +2,18 @@
   "compras": [
     {
       "id": 1,
-      "first_name": "Sebastian",
-      "last_name": "Eschweiler",
-      "email": "sebastian@codingthesmartway.com",
-      "card_name": "Sebastian Eschweiler",
-      "card_number": 9999999999,
-      "card_expiration": "2501",
-      "cvv_number": 625
-    },
-    {
-      "id": 2,
-      "first_name": "Sebastian",
-      "last_name": "Eschweiler",
-      "email": "sebastian@codingthesmartway.com",
-      "card_name": "Sebastian Eschweiler",
-      "card_number": 9999999999,
-      "card_expiration": "2501",
-      "cvv_number": 625
-    }    
+      "firstName": "Israel",
+      "lastName": "Ludolf",
+      "username": "iLudolf",
+      "email": "israelludolf@test.com",
+      "address": "Endereço teste",
+      "country": "Brazil",
+      "state": "ES",
+      "zip": 29144660,
+      "ccName": "Israel Laureth",
+      "ccNumber": "00",
+      "ccExpiration": "002021",
+      "ccCvv": "123"
+    }     
   ]
 }

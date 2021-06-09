@@ -17,7 +17,7 @@ ReactDOM.render(
 reportWebVitals();
 
 
-  // Example starter JavaScript for disabling form submissions if there are invalid fields
+// Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   'use strict'
 

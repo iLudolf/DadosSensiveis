@@ -24,7 +24,7 @@ function Production() {
                     <div class="py-5 text-center">
                         {/* <img class="d-block mx-auto mb-4" src="./cart-alt.svg" alt="" width="72" height="72" /> */}
                         <h2>Finalizar Compra</h2>
-                        <p class="lead">Exemplo de Transmissão de informações sensíveis na URL.</p>
+                        <p class="lead">Exemplo de Transmissão de informações sensíveis na URL.<br/><span style={{color: "DarkGreen"}}> Metodo Correto</span></p>
                     </div>
 
                     <div class="row g-5">
@@ -213,7 +213,7 @@ function Production() {
 
                                 <hr class="my-4" />
 
-                                <button class="w-100 btn btn-primary btn-lg" type="submit">Confirmar Compra</button>
+                                <button class="w-100 btn btn-primary btn-lg" type="submit" onClick={() => enviarDados()}>Confirmar Compra</button>
                             </form>
                         </div>
                     </div>
@@ -227,6 +227,58 @@ function Production() {
     );
 }
 
+
+
+const enviarDados = async () => {
+
+    const API_URL = `http://localhost:3001/compras`;
+    const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pegaDados())
+    });
+    const data = await response.json();   
+    alert(`${data.firstName}, Compra realizada com sucesso!`);
+}
+
+
+
+function pegaDados() {
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    let username = document.getElementById('username').value;
+    let email = document.getElementById('email').value;
+    let address = document.getElementById('address').value;
+    let country = document.getElementById('country').value;
+    let state = document.getElementById('state').value;
+    let zip = document.getElementById('zip').value;
+    let ccName = document.getElementById('cc-name').value;
+    let ccNumber = document.getElementById('cc-number').value;
+    let ccExpiration = document.getElementById('cc-expiration').value;
+    let ccCvv = document.getElementById('cc-cvv').value;
+    
+
+    var data = {
+        "id": Math.random(),
+        "firstName": firstName,
+        "lastName": lastName,
+        "username": username,
+        "email": email,
+        "address": address,
+        "country": country,
+        "state": state,
+        "zip": zip,
+        "ccName": ccName,
+        "ccNumber": ccNumber,
+        "ccExpiration": ccExpiration,
+        "ccCvv": ccCvv,
+    }
+
+    return data;
+}
 
 
 
